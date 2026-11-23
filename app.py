@@ -88,12 +88,17 @@ class OtomasyonUygulamasi(ctk.CTk):
         self.log_ekrani.see("end")
 
     def ag_testi_yap(self):
-        try:
-            r = requests.get("https://ipify.org", timeout=5)
-            ip = r.json().get("ip", "Bilinmiyor")
-            self.log_yaz(f"✅ Ağ & Proxy Bağlantısı Başarılı | Aktif Çıkış IP: {ip}")
-        except Exception as e:
-            self.log_yaz(f"❌ Ağ/Proxy Bağlantı Hatası: {e}")
+        servisler = ["https://ipify.org", "https://ifconfig.me", "https://icanhazip.com"]
+        for url in servisler:
+            try:
+                r = requests.get(url, timeout=5)
+                ip = r.text.strip()
+                if r.status_code == 200 and ip and len(ip) < 45:
+                    self.log_yaz(f"✅ Ağ & Proxy Bağlantısı Başarılı | Aktif Çıkış IP: {ip}")
+                    return
+            except Exception:
+                continue
+        self.log_yaz("❌ Ağ/Proxy Bağlantı Hatası: Sunuculardan yanıt alınamadı, internet/proxy ayarını kontrol edin.")
 
     def profilleri_cek(self):
         api_url = self.api_url_entry.get().strip()
