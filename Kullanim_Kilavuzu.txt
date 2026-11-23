@@ -1,0 +1,31 @@
+====================================================================
+   MULTILOGIN AKILLI OTOMASYON & RAPORLAMA PANELİ - KULLANIM KILAVUZU
+====================================================================
+
+1. SİSTEM GEREKSİNİMLERİ VE HAZIRLIK
+- Bilgisayarınızda Python kurulu olmasına gerek yoktur; program tek parça Windows uygulaması (.exe) olarak çalışır.
+- İşlemlere başlamadan önce bilgisayarınızda Multilogin masaüstü uygulamasının açık ve oturumunuzun aktif olduğundan emin olun.
+- Varsayılan yerel API adresi "http://127.0.0.1:35000" olarak ayarlıdır (farklı bir port kullanıyorsanız üst kutucuktan güncelleyebilirsiniz).
+
+2. ADIM ADIM KULLANIM
+Adım 1 - Bağlantı ve Profil Kontrolü:
+- Programı açtıktan sonra sol üstteki "Profilleri Çek" butonuna tıklayarak Multilogin üzerindeki mevcut profillerinizi listeleyin ve açılır menüden kullanacağınız profili seçin.
+- İnternet ve proxy çıkışınızı doğrulamak için "Proxy/Ağ Testi" butonuna basarak aktif çıkış IP adresinizi sağdaki log ekranından kontrol edebilirsiniz.
+
+Adım 2 - Metin Şablonu Oluşturma:
+- Sol alt paneldeki "Şablon Başlığı" ve "İçerik" alanlarını doldurup "Metin Şablonunu Kaydet" butonuna basın.
+- Kaydettiğiniz şablonlar yerel veritabanına (otomasyon_kayitlari.db) otomatik kaydedilir; program kapatılıp açılsa dahi silinmez.
+- "Aktif Kullanılacak Şablon" menüsünden kuyrukta kullanılacak metni seçin.
+
+Adım 3 - Toplu Bağlantı Kuyruğu ve Başlatma:
+- Sağ üstteki "Toplu Bağlantı Kuyruğu" kutusuna işlem yapılacak bağlantıları (URL) her satıra bir adet gelecek şekilde yapıştırın.
+- "Kuyruğu Başlat" butonuna tıklayın. Sağ alttaki "Canlı İşlem Akışı" ekranından her bağlantının durumunu anlık takip edebilir, istediğiniz an "Durdur" butonuyla işlemi duraklatabilirsiniz.
+
+Adım 4 - Excel / CSV Rapor Alma:
+- Kuyruk tamamlandığında veya dilediğiniz zaman sağ üstteki "Excel / CSV Rapor İndir" butonuna tıklayın.
+- Oluşturulan ".csv" dosyasını bilgisayarınızdaki Excel veya Google E-Tablolar ile açarak (Profil, URL, Kullanılan Metin, Tarih-Saat, Durum ve Hata Açıklaması sütunlarıyla) detaylı raporunuzu görüntüleyebilirsiniz.
+
+3. ÖNEMLİ NOTLAR
+- Programın oluşturduğu "otomasyon_kayitlari.db" dosyası şablonlarınızı ve işlem geçmişinizi saklar; programı farklı bir klasöre taşırken bu dosyayı da yanında tutmanız önerilir.
+- Windows Defender ilk çalıştırmada tanınmayan yayıncı uyarısı verirse "Ek bilgi -> Yine de çalıştır" seçeneğiyle programı açabilirsiniz.
+====================================================================
